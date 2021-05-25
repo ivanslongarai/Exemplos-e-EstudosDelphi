@@ -1,0 +1,1 @@
+# Repositório com exemplos de uso de (PPL) Parallel Programming Library no Delphi
