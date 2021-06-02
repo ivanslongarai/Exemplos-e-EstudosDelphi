@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A28A08E1-04F5-49CC-8317-4D9DFD65205C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Dll\dllSharing.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="App\consumeDllSharing.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="dllSharing">
+        <MSBuild Projects="Dll\dllSharing.dproj"/>
+    </Target>
+    <Target Name="dllSharing:Clean">
+        <MSBuild Projects="Dll\dllSharing.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dllSharing:Make">
+        <MSBuild Projects="Dll\dllSharing.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="consumeDllSharing">
+        <MSBuild Projects="App\consumeDllSharing.dproj"/>
+    </Target>
+    <Target Name="consumeDllSharing:Clean">
+        <MSBuild Projects="App\consumeDllSharing.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="consumeDllSharing:Make">
+        <MSBuild Projects="App\consumeDllSharing.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="dllSharing;consumeDllSharing"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="dllSharing:Clean;consumeDllSharing:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="dllSharing:Make;consumeDllSharing:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

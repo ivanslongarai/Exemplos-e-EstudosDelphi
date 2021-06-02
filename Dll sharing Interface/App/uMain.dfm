@@ -1,9 +1,9 @@
 object frmMain: TfrmMain
   Left = 0
   Top = 0
-  Caption = 'Validating properties with RTTI'
-  ClientHeight = 98
-  ClientWidth = 393
+  Caption = 'consumeDllSharing'
+  ClientHeight = 202
+  ClientWidth = 447
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,21 +13,22 @@ object frmMain: TfrmMain
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object btnTest: TButton
-    Left = 32
-    Top = 32
+  object btnSendOk: TButton
+    Left = 215
+    Top = 72
     Width = 75
     Height = 25
-    Caption = 'Test'
+    Caption = 'Send Ok'
     TabOrder = 0
-    OnClick = btnTestClick
+    OnClick = btnSendOkClick
   end
-  object cbForceError: TCheckBox
-    Left = 128
-    Top = 36
+  object btnSendException: TButton
+    Left = 296
+    Top = 72
     Width = 97
-    Height = 17
-    Caption = 'Force Error'
+    Height = 25
+    Caption = 'Send Exception'
     TabOrder = 1
+    OnClick = btnSendExceptionClick
   end
 end

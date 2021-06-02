@@ -27,6 +27,7 @@ var
   oPerson : TPerson;
   oCar    : TCar;
 begin
+
   oPerson := TPerson.Create;
   try
     if not cbForceError.Checked then
@@ -37,7 +38,7 @@ begin
       oPerson.Salary := 1200.0;
     end;
     if not oPerson.ValidateData then
-      ShowMessage(TPerson(oPerson).GetErrorsList.Text)
+      ShowMessage(oPerson.GetErrorsList.Text)
     else
       ShowMessage('The class data is ok!')
   finally
@@ -54,7 +55,7 @@ begin
       oCar.SoldIn := Now;
     end;
     if not oCar.ValidateData then
-      ShowMessage(TPerson(oCar).GetErrorsList.Text)
+      ShowMessage(oCar.GetErrorsList.Text)
     else
       ShowMessage('The class data is ok!')
   finally
